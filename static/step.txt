@@ -1,0 +1,51 @@
+#	vue init webpack my-project
+#	cd my-project
+#	npm install
+#	npm run dev
+//样式
+#	npm install style-loader --save-dev
+#	npm install --save-dev css-loader 
+#	npm install --save-dev less-loader less
+#	npm install sass-loader node-sass webpack --save-dev
+//jq+bootstrap  
+#   npm install jquery --save-dev
+#	cnpm install font-awesome -S
+#   cnpm i jquery -S
+#	const webpack = require('webpack')
+module.exports = {
+plugins: [
+new webpack.optimize.CommonsChunkPlugin('common'),
+new webpack.ProvidePlugin({
+$: 'jquery',
+jQuery: 'jquery',
+Popper: ['popper.js', 'default']
+})
+],
+在main.js中引入如下文件
+import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
+//表单验证
+#	npm install vuelidate --save
+import Vue from 'vue'
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
+//标题
+#	npm install vue-wechat-title -save
+//引入vue-wechat-title
+import VueWechatTitle from 'vue-wechat-title'
+Vue.use(VueWechatTitle)
+
+//加载一个全局设置文件
+#	npm install sass-resources-loader --save-dev
+vuejs-templates/webpack，请如下修改 build/utils.js：
+scss: generateLoaders('sass').concat(
+  {
+    loader: 'sass-resources-loader',
+    options: {
+      resources: path.resolve(__dirname, '../src/style/_variables.scss')
+    }
+  }
+),
